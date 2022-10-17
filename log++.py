@@ -5,6 +5,7 @@ plugin_perms.guildID = guildID
 from replit import db
 import json
 import datetime
+import re
 
 client = commands.Bot(command_prefix=['/log++:'], intents=discord.Intents().all())
 name = 'log++'
@@ -28,6 +29,6 @@ async def on_message(ctx):
 @client.command(name='adduser')
 @plugin_perms.check_guild
 async def adduser(ctx, user):
-  logusers.append(await client.fetch_user())
+  logusers.append(await client.fetch_user(re.match(r'<@([0-9]*)>', user)))
   db['log++.logusers'] = json.dumps([i.id for i in logusers])
   
