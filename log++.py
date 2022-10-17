@@ -33,6 +33,6 @@ async def on_message(ctx):
 @client.command(name='adduser')
 @plugin_perms.check_guild
 async def adduser(ctx, user):
-  logusers.append(await client.fetch_user(re.match(r'<@([0-9]*)>', user)))
+  logusers.append(await client.fetch_user(re.match(r'<@([0-9]*)>', user).group(1)))
   db['log++.logusers'] = json.dumps([i.id for i in logusers])
   
