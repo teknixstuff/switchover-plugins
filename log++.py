@@ -11,7 +11,11 @@ client = commands.Bot(command_prefix=['/log++:'], intents=discord.Intents().all(
 name = 'log++'
 if 'log++.logusers' not in db:
   db['log++.logusers'] = '[]'
-logusers = [await client.fetch_user(i) for i in json.loads(db['log++.logusers'])]
+logusers = []
+
+@client.event
+async def on_ready():
+  logusers = [await client.fetch_user(i) for i in json.loads(db['log++.logusers'])]
 
 @client.event
 @plugin_perms.check_guild
