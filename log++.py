@@ -1,13 +1,17 @@
+#PLUGINCONFIG#
+#name=log++#
+#/PLUGINCONFIG#
+
 import discord
 from discord.ext import commands
 from libover import plugin_perms
 plugin_perms.guildID = guildID
+from replit import db
 import json
 import datetime
 import re
 
 client = commands.Bot(command_prefix=['/log++:'], intents=discord.Intents().all())
-name = 'log++'
 if 'log++.logusers' not in db:
   db['log++.logusers'] = '[]'
 logusers = []
