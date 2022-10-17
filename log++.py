@@ -10,7 +10,7 @@ client = commands.Bot(command_prefix=['/log++:'], intents=discord.Intents().all(
 name = 'log++'
 if 'log++.logusers' not in db:
   db['log++.logusers'] = '[]'
-loguser = json.loads(db['log++.logusers'])
+logusers = [await client.fetch_user(i) for i in json.loads(db['log++.logusers'])]
 
 @client.event
 @plugin_perms.check_guild
@@ -28,3 +28,4 @@ async def on_message(ctx):
 @client.command(name='adduser')
 @plugin_perms.check_guild
 async def adduser(ctx, user):
+  logusers.append(await 
