@@ -2,7 +2,6 @@ import discord
 from discord.ext import commands
 from libover import plugin_perms
 plugin_perms.guildID = guildID
-from replit import db
 import json
 import datetime
 import re
