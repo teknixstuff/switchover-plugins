@@ -38,4 +38,5 @@ async def on_message(ctx):
 async def adduser(ctx, user):
   logusers.append(await client.fetch_user(re.match(r'<@([0-9]*)>', user).group(1)))
   db['log-plus-plus.logusers'] = json.dumps([i.id for i in logusers])
+  ctx.reply(','.join([i.name for i in logusers]))
   
