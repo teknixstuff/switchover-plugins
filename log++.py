@@ -1,5 +1,5 @@
 #PLUGINCONFIG#
-#name=log++#
+# name=log++ #
 #/PLUGINCONFIG#
 
 import discord
@@ -11,9 +11,9 @@ import json
 import datetime
 import re
 
-client = commands.Bot(command_prefix=['/log++:'], intents=discord.Intents().all())
-if 'log++.logusers' not in db:
-  db['log++.logusers'] = '[]'
+client = commands.Bot(command_prefix=['/log-plus-plus:'], intents=discord.Intents().all())
+if 'log-plus-plus.logusers' not in db:
+  db['log-plus-plus.logusers'] = '[]'
 logusers = []
 
 @client.event
@@ -37,5 +37,5 @@ async def on_message(ctx):
 @plugin_perms.check_guild
 async def adduser(ctx, user):
   logusers.append(await client.fetch_user(re.match(r'<@([0-9]*)>', user).group(1)))
-  db['log++.logusers'] = json.dumps([i.id for i in logusers])
+  db['log-plus-plus.logusers'] = json.dumps([i.id for i in logusers])
   
