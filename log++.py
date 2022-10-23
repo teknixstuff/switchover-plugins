@@ -4,7 +4,8 @@
 
 import discord
 from discord.ext import commands
-from libover import plugin_perms, db
+from libover import plugin_perms, Database
+db = Database(os.environ['CONFIG_DB_URL'])
 plugin_perms.guildID = guildID
 import json
 import datetime
