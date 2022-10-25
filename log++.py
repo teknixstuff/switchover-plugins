@@ -19,7 +19,7 @@ logusers = []
 
 @client.event
 async def on_ready():
-  logusers = [await client.fetch_user(i) for i in json.loads(db['log++.logusers'])]
+  logusers = [await client.fetch_user(i) for i in json.loads(db['log-plus-plus.logusers'])]
 
 @client.event
 @plugin_perms.check_guild
