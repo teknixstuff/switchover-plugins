@@ -11,7 +11,7 @@ import json
 import datetime
 import re
 
-client = commands.Bot(command_prefix=['/logger;'], intents=discord.Intents().all())
+client = commands.Bot(command_prefix=['/CWSM:','.?'], intents=discord.Intents().all())
 
 @client.command(name='curseforgecwsm')
 @plugin_perms.check_guild
