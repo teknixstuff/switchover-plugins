@@ -13,4 +13,4 @@ client = commands.Bot(command_prefix=['/CWSM:','.?'], intents=discord.Intents().
 @client.command(name='curseforgecwsm')
 @plugin_perms.check_guild
 async def curseforgecwsm(ctx):
-  ctx.reply('https://www.curseforge.com/minecraft/mc-mods/crackers-wither-storm-mod')
+  await ctx.reply('https://www.curseforge.com/minecraft/mc-mods/crackers-wither-storm-mod')
